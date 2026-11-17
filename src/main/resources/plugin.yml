@@ -1,0 +1,19 @@
+name: BaseFinder
+version: '1.0.0'
+main: de.basefinder.BaseFinderPlugin
+api-version: '1.21'
+description: Versteckte Untergrund-Basen mit Relog-Methode (DonutSMP-Stil)
+commands:
+  basefinder:
+    description: BaseFinder Admin-Befehle
+    aliases: [bf]
+    permission: basefinder.admin
+permissions:
+  basefinder.admin:
+    default: op
+  basefinder.bypass:
+    description: Ausnahme von Spectator-Block und X-Ray-Erkennung
+    default: op
+  basefinder.alert:
+    description: Erhaelt X-Ray-Warnungen
+    default: op

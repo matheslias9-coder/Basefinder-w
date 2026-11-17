@@ -1,0 +1,67 @@
+# Welten, in denen Basen generiert werden und die Relog-Methode gilt
+worlds:
+  - world
+
+generation:
+  min-radius: 500          # Mindestabstand zum Weltursprung (0,0)
+  max-radius: 3000         # Maximalabstand
+  cell-size: 350           # Raster: pro Zelle max. 1 Basis (kleiner = dichter)
+  chance: 0.4              # Wahrscheinlichkeit pro Zelle (0.0 - 1.0)
+  salt: 0                  # Aendern = andere Positionen
+  min-y: -48               # Tiefste Boden-Y-Hoehe der Basis
+  max-y: 24                # Hoechste Boden-Y-Hoehe der Basis
+  min-depth-below-surface: 12   # Mindesttiefe des Daches unter der Oberflaeche
+  only-new-chunks: true    # true = nur in neu generierten Chunks (zerstoert keine Spielerbauten)
+
+base:
+  size: 9                  # Innenmass (ungerade, 5-13)
+  height: 5                # Innenhoehe (3-12)
+  wall-material: AUTO      # AUTO = Deepslate/Stone passend zur Tiefe (getarnt)
+  floor-material: POLISHED_DEEPSLATE
+  chests: 3
+  # Format: MATERIAL;min;max;Chance(0-1)
+  loot:
+    - "DIAMOND;1;4;0.5"
+    - "IRON_INGOT;4;16;0.8"
+    - "GOLD_INGOT;3;10;0.6"
+    - "COOKED_BEEF;8;24;0.7"
+    - "NETHERITE_SCRAP;1;3;0.15"
+    - "ENCHANTED_GOLDEN_APPLE;1;1;0.05"
+
+discovery:
+  enabled: true
+  check-ticks: 40
+  announce: true
+  message: "&6%player% &ehat eine versteckte Basis gefunden!"
+  reward-commands: []      # z.B. - "give %player% diamond 5"
+
+# Relog-Methode: Beim Joinen spuert der Spieler Basen in der Naehe.
+# Wiederholtes Relogen an verschiedenen Orten = Eingrenzen der Basis.
+relog:
+  enabled: true
+  radius: 160              # Erkennungsradius (horizontal)
+  delay-ticks: 40          # Verzoegerung nach dem Join
+  cooldown-seconds: 5
+  sound: "block.sculk_sensor.clicking"   # leer = kein Sound
+  # Platzhalter: %dir% (N, NO, O ...), %dist% (auf 10 gerundet)
+  close: "&c&oEin dumpfes Pochen direkt unter dir..."
+  near: "&6&oIrgendwo in der Naehe vibriert der Boden."
+  far: "&7&oDu spuerst ein leises Rumpeln in der Ferne."
+  none: ""                 # Nachricht wenn nichts in Reichweite (leer = keine)
+
+protection:
+  block-spectator: true    # Spectator-Modus/Spectate-Teleport fuer Nicht-Ops sperren
+  xray-detection: true
+  window-seconds: 300
+  min-rare: 5              # Mind. so viele seltene Erze im Zeitfenster
+  ratio: 0.10              # und Anteil seltener Erze an allen abgebauten Bloecken
+  alert-cooldown-seconds: 60
+  punish-command: ""       # z.B. "kick %player% X-Ray-Verdacht"
+  xray-materials:
+    - DIAMOND_ORE
+    - DEEPSLATE_DIAMOND_ORE
+    - ANCIENT_DEBRIS
+    - EMERALD_ORE
+    - DEEPSLATE_EMERALD_ORE
+    - GOLD_ORE
+    - DEEPSLATE_GOLD_ORE
