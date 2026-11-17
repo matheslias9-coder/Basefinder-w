@@ -3,15 +3,15 @@ worlds:
   - world
 
 generation:
-  min-radius: 500          # Mindestabstand zum Weltursprung (0,0)
-  max-radius: 3000         # Maximalabstand
+  min-radius: 0            # Mindestabstand zum Weltursprung (0,0)
+  max-radius: 300          # Maximalabstand
   cell-size: 350           # Raster: pro Zelle max. 1 Basis (kleiner = dichter)
-  chance: 0.4              # Wahrscheinlichkeit pro Zelle (0.0 - 1.0)
+  chance: 1.0              # Wahrscheinlichkeit pro Zelle (0.0 - 1.0)
   salt: 0                  # Aendern = andere Positionen
   min-y: -48               # Tiefste Boden-Y-Hoehe der Basis
   max-y: 24                # Hoechste Boden-Y-Hoehe der Basis
   min-depth-below-surface: 12   # Mindesttiefe des Daches unter der Oberflaeche
-  only-new-chunks: true    # true = nur in neu generierten Chunks (zerstoert keine Spielerbauten)
+  only-new-chunks: false    # true = nur in neu generierten Chunks (zerstoert keine Spielerbauten)
 
 base:
   size: 9                  # Innenmass (ungerade, 5-13)
